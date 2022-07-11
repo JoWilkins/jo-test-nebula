@@ -1,14 +1,14 @@
 import React, { useEffect, useState, useMemo, useCallback } from 'react';
 import QlikConnector from '../utils/qlikConnector';
 import QlikContext from './QlikContext';
-import configure from '../utils/embedNebula';
+// import configure from '../utils/embedNebula';
 
 const QlikProvider = ({ children }) => {
   const [qlikApp, setQlikApp] = useState();
   const [qlikAppIsLoading, setQlikAppIsLoading] = useState();
   const [qlikAppError, setQlikAppError] = useState();
 
-  const [nebula, setNebula] = useState(null);
+  // const [nebula, setNebula] = useState(null);
 
   const qlikAppMemo = useMemo(() => qlikApp, [qlikApp]);
   const setQlikAppCallback = useCallback(
@@ -40,7 +40,7 @@ const QlikProvider = ({ children }) => {
         'e0a475b9-62fd-4313-a650-4d865baca5e1',
         'http://localhost:3000'
       );
-      setNebula(await configure(sourcedQlikApp));
+      // setNebula(await configure(sourcedQlikApp));
       // console.log('sourcedQlikApp', sourcedQlikApp);
     } catch (err) {
       console.log(err);
@@ -59,7 +59,7 @@ const QlikProvider = ({ children }) => {
     }
   }, [qlikAppMemo, qlikAppIsLoadingMemo]);
 
-  console.log('nebula', nebula);
+  // console.log('nebula', nebula);
 
   return (
     <QlikContext.Provider
@@ -67,7 +67,7 @@ const QlikProvider = ({ children }) => {
         qlikAppMemo,
         qlikAppIsLoadingMemo,
         qlikAppErrorMemo,
-        nebula,
+        // nebula,
       }}
     >
       {children}
