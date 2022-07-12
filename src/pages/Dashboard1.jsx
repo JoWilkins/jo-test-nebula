@@ -60,23 +60,7 @@ const Dashboard1 = () => {
     const getNebulaRenderableChart = async () => {
       const test = await nebula.render({
         element: chartRef.current,
-        type: 'piechart',
-        id: pieChartMarginByProdSubGroup, // This format is used when passing in object id
-        // fields: ['Sales Rep', { qLibraryId: 'KBgAFet', type: 'measure' }],
-        // properties: {
-        //   title: 'Avg Sales per Sales Rep',
-        //   subtitle: 'Trying to render stuff with Nebula.',
-        //   qHyperCubeDef: {
-        //     qInitialDataFetch: [
-        //       {
-        //         qLeft: 0,
-        //         qTop: 0,
-        //         qWidth: 17,
-        //         qHeight: 500,
-        //       },
-        //     ],
-        //   },
-        // },
+        id: 'nPLRub', // This format is used when passing in object id
       });
       console.log('test', test);
     };
